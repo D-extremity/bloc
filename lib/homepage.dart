@@ -14,11 +14,11 @@ class HomePage extends StatelessWidget {
         child: BlocBuilder<InternetBloc, InternetBlocState>(
           builder: (context, state) {
             if (state is InternetBlocGainedState) {
-              return Text("Connected");
+              return const Text("Connected");
             } else if (state is InternetBlocLostState) {
-              return Text("Not Connected");
+              return const Text("Not Connected");
             } else {
-              return Text("Loading...");
+              return const Text("Loading...");
             }
           },
         ),

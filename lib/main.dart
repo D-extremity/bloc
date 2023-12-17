@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => InternetBloc(),
-      child: MaterialApp(
+      child: const MaterialApp(
         home: HomePage(),
         debugShowCheckedModeBanner: false,
       ),
