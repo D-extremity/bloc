@@ -28,7 +28,7 @@ class SignInPage extends StatelessWidget {
                 if (state is SigninInValidState) {
                   return Text(
                     state.error,
-                    style: TextStyle(color: Colors.red),
+                    style: const TextStyle(color: Colors.red),
                   );
                 } else {
                   return Container();
