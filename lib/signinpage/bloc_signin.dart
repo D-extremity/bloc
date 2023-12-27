@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   SignInBloc() : super(SigninInitialState()) {
-    on<SigniInTextChange>(
+    on<SigniInTextChangeEvent>(
       (event, emit) {
         if (event.email == "" ||
             EmailValidator.validate(event.email) == false) {
@@ -17,7 +17,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         }
       },
     );
-    on<SignInSubmitted>(
+    on<SignInSubmittedEvent>(
       (event, emit) {
         emit(SigninLoadingState());
       },

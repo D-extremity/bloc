@@ -38,7 +38,7 @@ class SignInPage extends StatelessWidget {
                 controller: _getEmail,
                 onChanged: (value) {
                   BlocProvider.of<SignInBloc>(context).add(
-                      SigniInTextChange(_getEmail.text, _getPassword.text));
+                      SigniInTextChangeEvent(_getEmail.text, _getPassword.text));
                 },
                 decoration: InputDecoration(
                     hintText: "Email",
@@ -53,7 +53,7 @@ class SignInPage extends StatelessWidget {
                 controller: _getPassword,
                 onChanged: (value) {
                   BlocProvider.of<SignInBloc>(context).add(
-                      SigniInTextChange(_getEmail.text, _getPassword.text));
+                      SigniInTextChangeEvent(_getEmail.text, _getPassword.text));
                 },
                 decoration: InputDecoration(
                     hintText: "Password",
@@ -70,7 +70,7 @@ class SignInPage extends StatelessWidget {
                   onPressed: () {
                     if (state is SigninValidState) {
                       BlocProvider.of<SignInBloc>(context).add(
-                          SignInSubmitted(_getEmail.text, _getPassword.text));
+                          SignInSubmittedEvent(_getEmail.text, _getPassword.text));
                     }
                   },
                   color: (state is SigninInValidState)

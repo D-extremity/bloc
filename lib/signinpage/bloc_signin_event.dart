@@ -1,13 +1,13 @@
 abstract class SignInEvent {}
 
-class SigniInTextChange extends SignInEvent {
+class SigniInTextChangeEvent extends SignInEvent {
   final String email;
   final String password;
-  SigniInTextChange(this.email, this.password);
+  SigniInTextChangeEvent(this.email, this.password);
 }
 
-class SignInSubmitted extends SignInEvent {
+class SignInSubmittedEvent extends SignInEvent {
   final String email;
   final String password;
-  SignInSubmitted(this.email, this.password);
+  SignInSubmittedEvent(this.email, this.password);
 }
