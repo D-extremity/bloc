@@ -33,12 +33,12 @@ class _HomePageState extends State<HomePage> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const SignInPage()));
                       },
-                      child: const Text("Login")))),
+                      child: const Text("Login by Bloc")))),
           Expanded(
               flex: 1,
               child: Center(
                   child: ElevatedButton(
-                      onPressed: () {}, child: const Text("Login")))),
+                      onPressed: () {}, child: const Text("Login by Cubit")))),
         ],
       ),
     ));
