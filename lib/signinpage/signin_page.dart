@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc_learn_two/signinpage/bloc_signin.dart';
 import 'package:bloc_learn_two/signinpage/bloc_signin_event.dart';
 import 'package:bloc_learn_two/signinpage/bloc_signin_state.dart';
@@ -65,11 +67,26 @@ class SignInPage extends StatelessWidget {
               BlocBuilder<SignInBloc, SignInState>(builder: (_, state) {
                 return CupertinoButton(
                   child: Text("Login"),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (state is SigninValidState) {
+                      BlocProvider.of<SignInBloc>(context).add(
+                          SignInSubmitted(_getEmail.text, _getPassword.text));
+                    }
+                  },
                   color: (state is SigninInValidState)
                       ? Colors.grey
                       : Colors.green,
                 );
+              }),
+              BlocBuilder<SignInBloc, SignInState>(builder: (context, state) {
+                if (state is SigninLoadingState) {
+                  Timer.periodic(Duration(seconds: 15), (timer) {
+                    CircularProgressIndicator();
+                  });
+                  return Text("Loaded");
+                } else {
+                  return Container();
+                }
               })
             ],
           ),
